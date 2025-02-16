@@ -42,7 +42,7 @@ class RemotePortForwarding:
             logger.error("Failed to get SSH transport.")
             return
 
-        transport.request_port_forward("", self.remote_port)
+        transport.request_port_forward("0.0.0.0", self.remote_port)
         logger.info(
             f"Remote port forwarding started: {self.remote_host}:{self.remote_port} -> localhost:{self.local_port}")
 
