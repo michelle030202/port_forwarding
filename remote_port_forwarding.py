@@ -13,7 +13,7 @@ class RemotePortForwarding:
         self.remote_port = remote_port
         self.local_port = local_port
 
-    def handle_remote_forward(self, chan, local_host, local_port):
+    def remote_handler(self, chan, local_host, local_port):
         """Handles connections for remote port forwarding."""
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         try:
@@ -50,5 +50,5 @@ class RemotePortForwarding:
             chan = transport.accept(10)
             if chan is None:
                 continue
-            threading.Thread(target=self.handle_remote_forward, args=(chan, "localhost", self.local_port),
+            threading.Thread(target=self.remote_handler, args=(chan, "localhost", self.local_port),
                              daemon=True).start()
