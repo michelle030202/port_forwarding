@@ -18,4 +18,5 @@ It allows secure access to remote services as if they were running locally.
 ## 📦 Installation
 
 ### **1️⃣ Prerequisites**
-```pip install -r requirements.txt
+```sh
+pip install -r requirements.txt
